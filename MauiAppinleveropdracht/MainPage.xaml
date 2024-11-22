@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppinleveropdracht.MainPage"
+             BackgroundColor="#906cba">
+             
+    
+    
+    
+    <StackLayout Margin="20">
+
+        <StackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="CenterAndExpand">
+
+            <Image
+                Source="logoeen"
+                HorizontalOptions="Center"
+                WidthRequest="800"
+                HeightRequest="400"/>
+
+            <Frame CornerRadius="10" BackgroundColor="#ffb266" BorderColor="black" Padding="5">
+                <Label
+                    x:Name="UsernameLabel"
+                    Text="Gebruikersnaam:"
+                    TextColor="#383838"
+                    FontAttributes="Bold"
+                    FontFamily="CustomFont-Black"
+                    HorizontalOptions="Center"/>
+            </Frame>
+            
+            <Entry
+                x:Name="UsernameEntry"
+                Placeholder="Gebruikersnaam hier!"
+                HorizontalOptions="Center"/>
+
+            <Frame CornerRadius="10" BackgroundColor="#ffb266" BorderColor="black" Padding="5">
+                <Label
+                    x:Name="PasswordLabel"
+                    Text="Wachtwoord:"
+                    TextColor="#383838"
+                    FontAttributes="Bold"
+                    FontFamily="CustomFont-Black"
+                    HorizontalOptions="Center"/>
+            </Frame>
+
+
+            <Entry
+                x:Name="PasswordEntry"
+                Placeholder="Wachtwoord hier!"
+                HorizontalOptions="Center"/>
+            <Button
+                x:Name="LogInButton"
+                Text="Log In"
+                Clicked="LogInButton_Clicked"
+                Margin="0,40,0,0"
+                TextColor="White"
+                HorizontalOptions="Center"
+                BackgroundColor="#8D4747"/>
+
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

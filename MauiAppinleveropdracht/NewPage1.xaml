@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppinleveropdracht.NewPage1"
+             BackgroundColor="#906cba"
+             Title="Welkom">
+    
+    <VerticalStackLayout>
+        
+        <Image
+            Source="logoeen"
+            HorizontalOptions="Center"
+            WidthRequest="800"
+            HeightRequest="400"/>
+        
+        <Label 
+            Text="Truth or Drink"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Button
+                x:Name="SpelenButton"
+                Text="Spelen"
+                Margin="0,40,0,0"
+                TextColor="White"
+                HorizontalOptions="Center"
+                HeightRequest="100"
+                WidthRequest="100"
+                BackgroundColor="#8D4747"/>
+
+    </VerticalStackLayout>
+</ContentPage>
