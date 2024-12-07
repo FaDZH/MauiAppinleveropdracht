@@ -6,4 +6,10 @@ public partial class NewPage1 : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void SpelenButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new Spelmenu());
+
+    }
 }

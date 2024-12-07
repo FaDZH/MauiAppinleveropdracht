@@ -22,6 +22,7 @@
                 x:Name="SpelenButton"
                 Text="Spelen"
                 Margin="0,40,0,0"
+                Clicked="SpelenButton_Clicked"
                 TextColor="White"
                 HorizontalOptions="Center"
                 HeightRequest="100"

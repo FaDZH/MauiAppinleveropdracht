@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppinleveropdracht.Spelmenu"
+             BackgroundColor="#906cba"
+             Title="Spelmenu">
+    <VerticalStackLayout Spacing="50"  VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,200">
+
+        <Button
+            x:Name="StartButton"
+            Text="Start"
+            TextColor="White"
+            HeightRequest="100"
+            WidthRequest="100"
+            BackgroundColor="#8D4747"/>
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button
+            x:Name="InviteButton"
+            Text="Invite"
+            TextColor="White"
+            Clicked="InviteButton_Clicked"
+            HeightRequest="50"
+            WidthRequest="100"
+            BackgroundColor="#8D4747" />
+
+            <Button
+            x:Name="ThemaButton"
+            Text="Thema"
+            TextColor="White"
+            Clicked="ThemaButton_Clicked"
+            HeightRequest="50"
+            WidthRequest="100"
+            BackgroundColor="#8D4747" />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+
+
+</ContentPage>
