@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppinleveropdracht.Themas"
+             BackgroundColor="#906cba"
+             Title="Themas">
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
+
+        <Button
+            x:Name="RelatiesButton"
+            Text="Relaties"
+            TextColor="White"
+            HeightRequest="100"
+            WidthRequest="200"
+            BackgroundColor="#8D4747"
+            Clicked="OnButtonClicked"
+            HorizontalOptions="Center"/>
+
+        <Button
+            x:Name="CarriereButton"
+            Text="Carriere"
+            TextColor="White"
+            HeightRequest="100"
+            WidthRequest="200"
+            BackgroundColor="#8D4747"
+            Clicked="OnButtonClicked"
+            HorizontalOptions="Center"/>
+
+        <Button
+            x:Name="GeheimenButton"
+            Text="Geheimen"
+            TextColor="White"
+            HeightRequest="100"
+            WidthRequest="200"
+            BackgroundColor="#8D4747"
+            Clicked="OnButtonClicked"
+            HorizontalOptions="Center"/>
+
+        <Button
+            x:Name="VriendschapButton"
+            Text="Vriendschap"
+            TextColor="White"
+            HeightRequest="100"
+            WidthRequest="200"
+            BackgroundColor="#8D4747"
+            Clicked="OnButtonClicked"
+            HorizontalOptions="Center"/>
+
+    </VerticalStackLayout>
+    
+</ContentPage>
