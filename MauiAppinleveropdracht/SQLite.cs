@@ -4,9 +4,10 @@ namespace MauiAppinleveropdracht;
 
 public static class DBConstants
 {
-    private const string DBFileName = "SQLiteDemo.db3";
+    private const string DBFileName = "SQLite.db3";
 
-    public const SQLiteOpenFlags Flags =
+    public const 
+        SQLiteOpenFlags Flags =
         SQLiteOpenFlags.ReadWrite |
         SQLiteOpenFlags.Create |
         SQLiteOpenFlags.SharedCache;

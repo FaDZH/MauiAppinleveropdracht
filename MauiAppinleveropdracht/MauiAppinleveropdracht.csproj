@@ -46,7 +46,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.png" Color="#be97eb" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\splash.png" Color="#906cba" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -69,18 +69,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Invitemenu.xaml">
+	  <MauiXaml Update="MVVM\Views\Invitemenu.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NewPage1.xaml">
+	  <MauiXaml Update="MVVM\Views\NewPage1.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Spelmenu.xaml">
+	  <MauiXaml Update="MVVM\Views\Spelmenu.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Themas.xaml">
+	  <MauiXaml Update="MVVM\Views\Themas.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="MVVM\Viewmodels\" />
 	</ItemGroup>
 
 </Project>

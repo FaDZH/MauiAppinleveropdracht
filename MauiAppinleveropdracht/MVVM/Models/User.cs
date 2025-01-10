@@ -4,16 +4,16 @@ using TableAttribute = SQLite.TableAttribute;
 
 namespace MauiAppinleveropdracht
 {
-    [Table("Gebruiker")]
-    public class Gebruiker
+    [Table("User")]
+    public class User
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [MaxLength(50)]
         public string Username { get; set; }
 
         [MaxLength(50)]
-        public string Wachtwoord { get; set; }
+        public string Password { get; set; }
     }
 }
