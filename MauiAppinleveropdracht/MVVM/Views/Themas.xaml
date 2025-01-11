@@ -7,8 +7,8 @@
     <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
 
         <Button
-            x:Name="RelatiesButton"
-            Text="Relaties"
+            x:Name="DefaultButton"
+            Text="Default"
             TextColor="White"
             HeightRequest="100"
             WidthRequest="200"
@@ -17,28 +17,8 @@
             HorizontalOptions="Center"/>
 
         <Button
-            x:Name="CarriereButton"
-            Text="Carriere"
-            TextColor="White"
-            HeightRequest="100"
-            WidthRequest="200"
-            BackgroundColor="#8D4747"
-            Clicked="OnButtonClicked"
-            HorizontalOptions="Center"/>
-
-        <Button
-            x:Name="GeheimenButton"
-            Text="Geheimen"
-            TextColor="White"
-            HeightRequest="100"
-            WidthRequest="200"
-            BackgroundColor="#8D4747"
-            Clicked="OnButtonClicked"
-            HorizontalOptions="Center"/>
-
-        <Button
-            x:Name="VriendschapButton"
-            Text="Vriendschap"
+            x:Name="CustomButton"
+            Text="Custom"
             TextColor="White"
             HeightRequest="100"
             WidthRequest="200"

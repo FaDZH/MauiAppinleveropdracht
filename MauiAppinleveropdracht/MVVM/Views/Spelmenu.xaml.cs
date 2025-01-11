@@ -11,9 +11,14 @@ public partial class Spelmenu : ContentPage
     {
         InitializeComponent();
 
-        //dit is voor het opslaan van gekozen thema en het laten zien 
+        //dit is voor het opslaan van gekozen thema en het laten zien
         _selectedTheme = selectedTheme;
         ThemeLabel.Text = $"Gekozen thema: {_selectedTheme}";
+    }
+
+    private async void StartButton_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new TruthOrDrinkPage());
     }
 
     private void InviteButton_Clicked(object sender, EventArgs e)

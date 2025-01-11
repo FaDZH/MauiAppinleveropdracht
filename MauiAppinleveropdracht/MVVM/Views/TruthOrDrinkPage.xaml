@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppinleveropdracht.TruthOrDrinkPage"
+             BackgroundColor="#906cba"
+             Title="Truth or Drink">
+    <VerticalStackLayout Padding="20" Spacing="20" VerticalOptions="Center">
+        <Label
+            x:Name="QuestionLabel"
+            Text="Press Start to begin!"
+            FontSize="24"
+            TextColor="White"
+            HorizontalTextAlignment="Center" />
+
+        <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+            <Button
+                Text="Truth"
+                Clicked="OnTruthClicked"
+                WidthRequest="150"
+                BackgroundColor="#5C8D47"
+                TextColor="White" />
+            <Button
+                Text="Drink"
+                Clicked="OnDrinkClicked"
+                WidthRequest="150"
+                BackgroundColor="#8D4747"
+                TextColor="White" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

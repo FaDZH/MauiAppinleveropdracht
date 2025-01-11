@@ -5,7 +5,7 @@
              BackgroundColor="#906cba"
              Title="Spelmenu">
     <VerticalStackLayout Spacing="50" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,200">
-        
+
         <Label
         x:Name="ThemeLabel"
         Text="Gekozen thema: Geen thema"
@@ -18,6 +18,7 @@
         x:Name="StartButton"
         Text="Start"
         TextColor="White"
+        Clicked="StartButton_Clicked"
         HeightRequest="100"
         WidthRequest="100"
         BackgroundColor="#8D4747" />
