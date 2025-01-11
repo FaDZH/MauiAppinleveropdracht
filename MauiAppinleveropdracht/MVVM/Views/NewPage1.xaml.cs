@@ -7,9 +7,12 @@ public partial class NewPage1 : ContentPage
 		InitializeComponent();
 	}
 
-    private void SpelenButton_Clicked(object sender, EventArgs e)
+    private async void SpelenButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new Spelmenu());
+        // pakt hier de gebruikersnaam die eerder is opgeslagen in App.CurrentUserName
+        string currentUserName = App.CurrentUserName;
 
+        await Navigation.PushAsync(new Spelmenu(currentUserName));
     }
+
 }

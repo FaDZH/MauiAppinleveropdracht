@@ -4,46 +4,80 @@
              x:Class="MauiAppinleveropdracht.Spelmenu"
              BackgroundColor="#906cba"
              Title="Spelmenu">
-    <VerticalStackLayout Spacing="50" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,200">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
 
         <Label
-        x:Name="ThemeLabel"
-        Text="Gekozen thema: Geen thema"
-        FontAttributes="Bold"
-        FontSize="18"
-        TextColor="White"
-        HorizontalOptions="Center" />
+            x:Name="ThemeLabel"
+            Text="Gekozen thema: Geen thema"
+            FontAttributes="Bold"
+            FontSize="18"
+            TextColor="White"
+            HorizontalOptions="Center" />
+
+        <Entry
+            x:Name="PlayerNameEntry"
+            Placeholder="Voer spelernaam in"
+            HorizontalOptions="Fill" />
+
+        <HorizontalStackLayout Spacing="10">
+            <Button
+                Text="Voeg Speler Toe"
+                Clicked="AddPlayerButton_Clicked"
+                TextColor="White"
+                BackgroundColor="#5C8D47"
+                HorizontalOptions="FillAndExpand" />
+
+            <Button
+                Text="Verwijder Speler"
+                Clicked="RemovePlayerButton_Clicked"
+                TextColor="White"
+                BackgroundColor="#8D4747"
+                HorizontalOptions="FillAndExpand" />
+        </HorizontalStackLayout>
+
+        <CollectionView
+            x:Name="PlayersListView"
+            ItemsSource="{Binding Players}"
+            VerticalOptions="FillAndExpand"
+            SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label
+                        Text="{Binding}"
+                        FontSize="18"
+                        TextColor="White"
+                        HorizontalTextAlignment="Center" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+            <Button
+                x:Name="InviteButton"
+                Text="Invite"
+                Clicked="InviteButton_Clicked"
+                TextColor="White"
+                HeightRequest="50"
+                WidthRequest="100"
+                BackgroundColor="#8D4747" />
+
+            <Button
+                x:Name="ThemaButton"
+                Text="Thema"
+                Clicked="ThemaButton_Clicked"
+                TextColor="White"
+                HeightRequest="50"
+                WidthRequest="100"
+                BackgroundColor="#8D4747" />
+        </HorizontalStackLayout>
 
         <Button
-        x:Name="StartButton"
-        Text="Start"
-        TextColor="White"
-        Clicked="StartButton_Clicked"
-        HeightRequest="100"
-        WidthRequest="100"
-        BackgroundColor="#8D4747" />
-
-        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-            <Button
-            x:Name="InviteButton"
-            Text="Invite"
+            x:Name="StartButton"
+            Text="Start"
+            Clicked="StartButton_Clicked"
             TextColor="White"
-            Clicked="InviteButton_Clicked"
-            HeightRequest="50"
-            WidthRequest="100"
-            BackgroundColor="#8D4747" />
-
-            <Button
-            x:Name="ThemaButton"
-            Text="Thema"
-            TextColor="White"
-            Clicked="ThemaButton_Clicked"
-            HeightRequest="50"
-            WidthRequest="100"
-            BackgroundColor="#8D4747" />
-        </HorizontalStackLayout>
+            BackgroundColor="#8D4747"
+            HorizontalOptions="Center" />
     </VerticalStackLayout>
-
-
-
 </ContentPage>

@@ -2,17 +2,22 @@ namespace MauiAppinleveropdracht;
 
 public partial class Themas : ContentPage
 {
+    public TaskCompletionSource<string> ThemeSelectionTask { get; private set; } = new TaskCompletionSource<string>();
+
     public Themas()
     {
         InitializeComponent();
     }
 
-    private void OnButtonClicked(object sender, EventArgs e)
+    private async void OnButtonClicked(object sender, EventArgs e)
     {
-        //hier haalt die het tekst dat op het button staat mee 
+        // hier krijgt die de tekst van eengeklikte blokje waar in het thema staat
         var button = sender as Button;
-        var selectedTheme = button?.Text ?? "Geen thema";
+        string selectedTheme = button?.Text ?? "Geen thema";
 
-        Navigation.PushAsync(new Spelmenu(selectedTheme));
+        // stelt het waarde in op het taskcompletionsource
+        ThemeSelectionTask.SetResult(selectedTheme);
+
+        await Navigation.PopAsync();
     }
 }

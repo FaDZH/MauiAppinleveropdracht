@@ -26,13 +26,17 @@
 
                 if (user != null)
                 {
-                    await Navigation.PushAsync(new NewPage1());
+                    // Hier slaat die ingelogde naam op
+                    App.CurrentUserName = user.Username;
+
+                    await Navigation.PushAsync(new Spelmenu(App.CurrentUserName));
                 }
                 else
                 {
                     await DisplayAlert("Fout", "Ongeldige gebruikersnaam of wachtwoord.", "OK");
                 }
             }
+
         }
 
         private async void RegisterButton_Clicked(object sender, EventArgs e)
