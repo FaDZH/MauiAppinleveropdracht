@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 using TableAttribute = SQLite.TableAttribute;
 
 
-namespace MauiAppinleveropdracht
+namespace MauiAppinleveropdracht;
+
+[Table("Player")]
+public class Player
 {
-    [Table("Player")]
-    public class Player
-    {
-        [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+    [PrimaryKey, AutoIncrement]
+    public int ID { get; set; }
 
-        [ForeignKey(nameof(User))]
-        public int UserID { get; set; }
+    [ForeignKey(nameof(User))]
+    public int UserID { get; set; }
 
-        [MaxLength(50)]
-        public string PlayerName { get; set; }
-    }
+    [MaxLength(50)]
+    public string PlayerName { get; set; }
 }

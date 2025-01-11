@@ -4,15 +4,23 @@
              x:Class="MauiAppinleveropdracht.Spelmenu"
              BackgroundColor="#906cba"
              Title="Spelmenu">
-    <VerticalStackLayout Spacing="50"  VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,200">
+    <VerticalStackLayout Spacing="50" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,200">
+        
+        <Label
+        x:Name="ThemeLabel"
+        Text="Gekozen thema: Geen thema"
+        FontAttributes="Bold"
+        FontSize="18"
+        TextColor="White"
+        HorizontalOptions="Center" />
 
         <Button
-            x:Name="StartButton"
-            Text="Start"
-            TextColor="White"
-            HeightRequest="100"
-            WidthRequest="100"
-            BackgroundColor="#8D4747"/>
+        x:Name="StartButton"
+        Text="Start"
+        TextColor="White"
+        HeightRequest="100"
+        WidthRequest="100"
+        BackgroundColor="#8D4747" />
 
         <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
             <Button
@@ -33,8 +41,8 @@
             WidthRequest="100"
             BackgroundColor="#8D4747" />
         </HorizontalStackLayout>
-
     </VerticalStackLayout>
+
 
 
 </ContentPage>

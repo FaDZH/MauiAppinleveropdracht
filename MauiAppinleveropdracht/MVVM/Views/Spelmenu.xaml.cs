@@ -1,19 +1,28 @@
+using MauiAppinleveropdracht;
+using System.Diagnostics;
+
 namespace MauiAppinleveropdracht;
 
 public partial class Spelmenu : ContentPage
 {
-	public Spelmenu()
-	{
-		InitializeComponent();
-	}
+    private string _selectedTheme;
 
-    private void ThemaButton_Clicked(object sender, EventArgs e)
+    public Spelmenu(string selectedTheme = "Geen thema")
     {
-        Navigation.PushAsync(new Themas());
+        InitializeComponent();
+
+        //dit is voor het opslaan van gekozen thema en het laten zien 
+        _selectedTheme = selectedTheme;
+        ThemeLabel.Text = $"Gekozen thema: {_selectedTheme}";
     }
 
     private void InviteButton_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new Invitemenu());
+    }
+
+    private void ThemaButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new Themas());
     }
 }

@@ -2,8 +2,8 @@ namespace MauiAppinleveropdracht;
 
 public partial class Invitemenu : ContentPage
 {
-	public Invitemenu()
-	{
-		InitializeComponent();
-	}
+    public Invitemenu()
+    {
+        InitializeComponent();
+    }
 }

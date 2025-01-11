@@ -2,34 +2,42 @@
 {
     public partial class MainPage : ContentPage
     {
-
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void LogInButton_Clicked(object sender, EventArgs e)
+        private async void LogInButton_Clicked(object sender, EventArgs e)
         {
-            bool IsUsernameEmpty = string.IsNullOrEmpty(UsernameEntry.Text);
-            bool IsPasswordEmpty = string.IsNullOrEmpty(PasswordEntry.Text);
+            bool isUsernameEmpty = string.IsNullOrEmpty(UsernameEntry.Text);
+            bool isPasswordEmpty = string.IsNullOrEmpty(PasswordEntry.Text);
 
-            if (IsUsernameEmpty)
+            if (isUsernameEmpty || isPasswordEmpty)
             {
-                UsernameEntry.Placeholder = "Vul iets in!";
+                await DisplayAlert("Fout", "Vul alle velden in.", "OK");
+                return;
             }
 
-            else if (IsPasswordEmpty)
+            using (var db = new SQLite.SQLiteConnection(DBConstants.DatabasePath, DBConstants.Flags))
             {
-                PasswordEntry.Placeholder = "Vul iets in!";
-            }
+                db.CreateTable<User>();
+                var user = db.Table<User>()
+                             .FirstOrDefault(u => u.Username == UsernameEntry.Text && u.Password == PasswordEntry.Text);
 
-            else
-            {
-                Navigation.PushAsync(new NewPage1());
+                if (user != null)
+                {
+                    await Navigation.PushAsync(new NewPage1());
+                }
+                else
+                {
+                    await DisplayAlert("Fout", "Ongeldige gebruikersnaam of wachtwoord.", "OK");
+                }
             }
+        }
 
+        private async void RegisterButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage());
         }
     }
-
-
 }
