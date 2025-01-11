@@ -68,14 +68,22 @@ public partial class Spelmenu : ContentPage
 
     private async void StartButton_Clicked(object sender, EventArgs e)
     {
+        if (string.IsNullOrEmpty(_selectedTheme) || _selectedTheme == "Geen thema")
+        {
+            await DisplayAlert("Fout", "Je moet een thema kiezen voordat je het spel kunt starten.", "OK");
+            return;
+        }
+
         if (Players.Count == 0)
         {
             await DisplayAlert("Fout", "Voeg minimaal één speler toe om te starten.", "OK");
             return;
         }
 
-        await Navigation.PushAsync(new TruthOrDrinkPage(Players.ToList()));
+        // Start het spel met het geselecteerde thema
+        await Navigation.PushAsync(new TruthOrDrinkPage(Players.ToList(), _selectedTheme));
     }
+
 
     private async void InviteButton_Clicked(object sender, EventArgs e)
     {
@@ -93,9 +101,10 @@ public partial class Spelmenu : ContentPage
         // Wacht totdat gebruiker iets heeft geselecteerd
         string selectedTheme = await themasPage.ThemeSelectionTask.Task;
 
-        // controleert of er een thema is gekozenn
+        // controleert of er een thema is gekozenn en slaat die op
         if (!string.IsNullOrEmpty(selectedTheme))
         {
+            _selectedTheme = selectedTheme; 
             ThemeLabel.Text = $"Gekozen thema: {selectedTheme}";
         }
     }

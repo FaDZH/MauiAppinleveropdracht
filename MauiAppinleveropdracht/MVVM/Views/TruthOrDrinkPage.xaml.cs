@@ -1,5 +1,3 @@
-using MauiAppinleveropdracht.MVVM.Viewmodels;
-
 namespace MauiAppinleveropdracht;
 
 public partial class TruthOrDrinkPage : ContentPage
@@ -8,11 +6,11 @@ public partial class TruthOrDrinkPage : ContentPage
     private readonly List<string> _players;
     private int _currentPlayerIndex;
 
-    public TruthOrDrinkPage(List<string> players)
+    public TruthOrDrinkPage(List<string> players, string theme)
     {
         InitializeComponent();
-        _game = new TruthOrDrinkGame();
         _players = players;
+        _game = new TruthOrDrinkGame(theme);
         _currentPlayerIndex = 0;
 
         LoadNextQuestion();
@@ -37,3 +35,4 @@ public partial class TruthOrDrinkPage : ContentPage
         LoadNextQuestion();
     }
 }
+

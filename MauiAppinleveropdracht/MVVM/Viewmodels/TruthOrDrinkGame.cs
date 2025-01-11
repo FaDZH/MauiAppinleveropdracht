@@ -4,16 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MauiAppinleveropdracht.MVVM.Viewmodels
-{
-    public class TruthOrDrinkGame
-    {
-        private readonly List<string> _questions;
-        private int _currentQuestionIndex;
+namespace MauiAppinleveropdracht;
 
-        public TruthOrDrinkGame()
+public class TruthOrDrinkGame
+{
+    private readonly List<string> _questions;
+    private int _currentQuestionIndex;
+
+    public TruthOrDrinkGame(string theme)
+    {
+        _questions = GetQuestionsForTheme(theme);
+        _currentQuestionIndex = 0;
+    }
+
+    private List<string> GetQuestionsForTheme(string theme)
+    {
+        if (theme == "Default")
         {
-            _questions = new List<string>
+            return new List<string>
             {
                 "What is the most embarrassing thing you've ever done?",
                 "Have you ever cheated on a test?",
@@ -26,16 +34,22 @@ namespace MauiAppinleveropdracht.MVVM.Viewmodels
                 "What’s your most embarrassing habit?",
                 "If you could change one thing about yourself, what would it be?"
             };
-
-            _currentQuestionIndex = 0;
         }
 
-        public string GetNextQuestion()
+        // dit is een tijdelijk solution voor als er op special wordt gedrukt bij themas, dan geeft die gwn lege lijst
+        return new List<string>();
+    }
+
+    public string GetNextQuestion()
+    {
+        if (_questions.Count == 0)
         {
-            if (_currentQuestionIndex >= _questions.Count)
-                _currentQuestionIndex = 0; // Als vragen zijn geweest dan begint die opnieuw bij eerste vraag
-
-            return _questions[_currentQuestionIndex++];
+            return "deze werkt nog niet lololol";
         }
+
+        if (_currentQuestionIndex >= _questions.Count)
+            _currentQuestionIndex = 0;
+
+        return _questions[_currentQuestionIndex++];
     }
 }
