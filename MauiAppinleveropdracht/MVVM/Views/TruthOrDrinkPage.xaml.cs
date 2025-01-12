@@ -1,38 +1,41 @@
-namespace MauiAppinleveropdracht;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-public partial class TruthOrDrinkPage : ContentPage
+namespace MauiAppinleveropdracht
 {
-    private readonly TruthOrDrinkGame _game;
-    private readonly List<string> _players;
-    private int _currentPlayerIndex;
-
-    public TruthOrDrinkPage(List<string> players, string theme)
+    public partial class TruthOrDrinkPage : ContentPage
     {
-        InitializeComponent();
-        _players = players;
-        _game = new TruthOrDrinkGame(theme);
-        _currentPlayerIndex = 0;
+        private readonly TruthOrDrinkGame _game;
+        private readonly List<string> _players;
+        private int _currentPlayerIndex;
 
-        LoadNextQuestion();
-    }
+        public TruthOrDrinkPage(List<string> players, string theme)
+        {
+            InitializeComponent();
+            _players = players;
+            _game = new TruthOrDrinkGame(theme);
+            _currentPlayerIndex = 0;
 
-    private void LoadNextQuestion()
-    {
-        string currentPlayer = _players[_currentPlayerIndex];
-        string nextQuestion = _game.GetNextQuestion();
+            _ = LoadNextQuestionAsync();
+        }
 
-        QuestionLabel.Text = $"{currentPlayer}'s beurt: {nextQuestion}";
-        _currentPlayerIndex = (_currentPlayerIndex + 1) % _players.Count;
-    }
+        private async Task LoadNextQuestionAsync()
+        {
+            string currentPlayer = _players[_currentPlayerIndex];
+            string nextQuestion = await _game.GetNextQuestionAsync();
 
-    private void OnTruthClicked(object sender, EventArgs e)
-    {
-        LoadNextQuestion();
-    }
+            QuestionLabel.Text = $"{currentPlayer}'s beurt: {nextQuestion}";
+            _currentPlayerIndex = (_currentPlayerIndex + 1) % _players.Count;
+        }
 
-    private void OnDrinkClicked(object sender, EventArgs e)
-    {
-        LoadNextQuestion();
+        private async void OnTruthClicked(object sender, EventArgs e)
+        {
+            await LoadNextQuestionAsync();
+        }
+
+        private async void OnDrinkClicked(object sender, EventArgs e)
+        {
+            await LoadNextQuestionAsync();
+        }
     }
 }
-

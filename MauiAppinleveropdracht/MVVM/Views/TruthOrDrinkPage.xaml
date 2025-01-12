@@ -7,7 +7,7 @@
     <VerticalStackLayout Padding="20" Spacing="20" VerticalOptions="Center">
         <Label
             x:Name="QuestionLabel"
-            Text="Press Start to begin!"
+            Text="Vraag"
             FontSize="24"
             TextColor="White"
             HorizontalTextAlignment="Center" />

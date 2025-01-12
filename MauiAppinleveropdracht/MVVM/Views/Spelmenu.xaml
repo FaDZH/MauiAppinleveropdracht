@@ -32,7 +32,7 @@
                 Text="Verwijder Speler"
                 Clicked="RemovePlayerButton_Clicked"
                 TextColor="White"
-                BackgroundColor="#8D4747"
+                BackgroundColor="red"
                 HorizontalOptions="FillAndExpand" />
         </HorizontalStackLayout>
 

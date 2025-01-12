@@ -1,27 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MauiAppinleveropdracht;
-
-public class TruthOrDrinkGame
+﻿namespace MauiAppinleveropdracht
 {
-    private readonly List<string> _questions;
-    private int _currentQuestionIndex;
-
-    public TruthOrDrinkGame(string theme)
+    public class TruthOrDrinkGame
     {
-        _questions = GetQuestionsForTheme(theme);
-        _currentQuestionIndex = 0;
-    }
+        private readonly string _theme;
+        private readonly API _api;
+        private readonly List<string> _defaultQuestions;
+        private int _currentDefaultIndex;
 
-    private List<string> GetQuestionsForTheme(string theme)
-    {
-        if (theme == "Default")
+        public TruthOrDrinkGame(string theme)
         {
-            return new List<string>
+            _theme = theme;
+            _api = new API();
+            _defaultQuestions = new List<string>
             {
                 "What is the most embarrassing thing you've ever done?",
                 "Have you ever cheated on a test?",
@@ -34,22 +24,28 @@ public class TruthOrDrinkGame
                 "What’s your most embarrassing habit?",
                 "If you could change one thing about yourself, what would it be?"
             };
+            _currentDefaultIndex = 0;
         }
 
-        // dit is een tijdelijk solution voor als er op special wordt gedrukt bij themas, dan geeft die gwn lege lijst
-        return new List<string>();
-    }
-
-    public string GetNextQuestion()
-    {
-        if (_questions.Count == 0)
+        public async Task<string> GetNextQuestionAsync()
         {
-            return "deze werkt nog niet lololol";
+            if (_theme == "Special")
+            {
+                return await _api.GetSpecialQuestionAsync();
+            }
+            else if (_theme == "Default")
+            {
+                if (_defaultQuestions.Count == 0)
+                {
+                    return "Geen standaardvragen beschikbaar.";
+                }
+
+                var question = _defaultQuestions[_currentDefaultIndex];
+                _currentDefaultIndex = (_currentDefaultIndex + 1) % _defaultQuestions.Count;
+                return question;
+            }
+
+            return "Geen vragen beschikbaar voor dit thema.";
         }
-
-        if (_currentQuestionIndex >= _questions.Count)
-            _currentQuestionIndex = 0;
-
-        return _questions[_currentQuestionIndex++];
     }
 }
